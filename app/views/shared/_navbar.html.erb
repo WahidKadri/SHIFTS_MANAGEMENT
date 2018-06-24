@@ -1,0 +1,21 @@
+<div class="navbar">
+  <span id="opennavmenu">
+    <div class="white-circle"></div>
+    <%= image_tag("plus.png", id: "navbar-plus-icon")%>
+  </span>
+
+  <%= link_to image_tag("calendar-icon.png", class: "navbar-icons #{request.fullpath == calendar_path ? 'active' : 'inactive'}"), calendar_path %>
+</div>
+
+
+<div id="myNavMenu" class="navmenu">
+  <a href="#" class="closemenu">&times;</a>
+  <div class="menu-box">
+    <%= link_to new_worker_path, class: "submit-button" do %>
+      <i class="fas fa-plus"></i> Add a new Worker
+    <% end %>
+    <%= link_to new_shift_path, class: "submit-button" do %>
+      <i class="fas fa-plus"></i> Add a new Shift
+    <% end %>
+  </div>
+</div>
