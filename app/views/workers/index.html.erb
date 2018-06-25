@@ -13,7 +13,7 @@
 
               <li>
                 <%= link_to worker_path(worker) do  %>
-                  <i class="fas fa-user-md"></i> <%= worker.first_name %> <%= worker.last_name.upcase %>
+                  <i class="fas fa-user-md"></i> <%= worker.first_name %> <%= worker.last_name %>
                 <% end %>
               </li>
 
@@ -27,7 +27,7 @@
 
               <li>
                 <%= link_to worker_path(worker) do  %>
-                  <i class="fas fa-graduation-cap"></i> <%= worker.first_name %> <%= worker.last_name.upcase %>
+                  <i class="fas fa-graduation-cap"></i> <%= worker.first_name %> <%= worker.last_name %>
                 <% end %>
               </li>
 
@@ -41,7 +41,7 @@
 
               <li>
                 <%= link_to worker_path(worker) do  %>
-                  <i class="fas fa-notes-medical"></i> <%= worker.first_name %> <%= worker.last_name.upcase %>
+                  <i class="fas fa-notes-medical"></i> <%= worker.first_name %> <%= worker.last_name %>
                 <% end %>
               </li>
 
@@ -62,19 +62,46 @@
                   <% else %>
                     <i class="fas fa-notes-medical"></i>
                   <% end %>
-                    <%= worker.first_name %> <%= worker.last_name.upcase %>
+                    <%= worker.first_name %> <%= worker.last_name %>
                 <% end %>
-                || <%= worker.status %>
               </li>
 
             <% end %>
           </ul>
+        <% elsif !params[:worker][:last_name].present? && !params[:worker][:status].present? %>
+          <ul class="list-unstyled">
+            <h3>MEDIC</h3>
+            <% @medics.each do |worker| %>
+              <li>
+                <%= link_to worker_path(worker) do  %>
+                  <i class="fas fa-user-md"></i> <%= worker.first_name %> <%= worker.last_name %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
 
-        <% end %>
-      </div>
-      <div class="home-button-spacer">
-        <%= link_to root_path, class: 'home-button' do %>
-          <i class="fas fa-home"></i> Back to home
+          <ul class="list-unstyled">
+            <h3>INTERN</h3>
+            <% @interns.each do |worker| %>
+              <li>
+                <%= link_to worker_path(worker) do  %>
+                  <i class="fas fa-graduation-cap"></i> <%= worker.first_name %> <%= worker.last_name %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+
+          <ul class="list-unstyled">
+            <h3>INTERIM</h3>
+            <% @interims.each do |worker| %>
+              <li>
+                <%= link_to worker_path(worker) do  %>
+                  <i class="fas fa-notes-medical"></i> <%= worker.first_name %> <%= worker.last_name %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+
         <% end %>
       </div>
     </div>

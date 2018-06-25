@@ -6,6 +6,7 @@
   width: 100%;
   padding: 0px 5px;
   position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -14,10 +15,10 @@
 
 /* Navbar icons */
 .navbar-icons {
-  height: 75px;
-  width: 75px;
+  height: 50px;
+  width: 50px;
   border-radius:50%;
-  margin-bottom: 30px;
+  // margin-top: 5px;
 }
 
 .active{
@@ -32,14 +33,14 @@
 #navbar-plus-icon {
   height: 75px;
   width: 75px;
-  margin-bottom: 30px;
+  margin-top: 30px;
   z-index: 10;
 }
 
 .white-circle {
   height: 70px;
   width: 70px;
-  bottom: 15px;
+  top: 15px;
   background: white;
   border-radius: 50%;
   position: absolute;
@@ -57,8 +58,9 @@
   bottom: 0; /* Stay at the top */
   background-color: $light-gray; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
+  padding-top: 10px; /* Place content 60px from the top */
   transition: 0.2s;
+  opacity: 0.95;
 }
 
 /* The navigation menu links */
@@ -81,7 +83,7 @@
 /* Position and style the close button (top right corner) */
 .navmenu .closemenu {
   position: absolute;
-  top: 0;
+  top: 80px;
   right: 5px;
   font-size: 50px;
   margin-left: 50px;
@@ -91,5 +93,5 @@
 /* Menu boxes */
 
 .menu-box {
-  margin-top: 110px;
+  margin-top: 200px;
 }

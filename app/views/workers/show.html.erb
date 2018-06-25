@@ -6,22 +6,11 @@
         <h2>Status - <%= @worker.status %></h2>
       </div>
 
-      <ul class="list-inline">
-        <li>
-          <div class="edit-button">
-            <%= link_to edit_worker_path(@worker), class: 'submit-button' do %>
-              <i class="fas fa-pencil-alt"></i> Edit <%= @worker.first_name %>
-            <% end %>
-          </div>
-        </li>
-        <li>
-          <div class="edit-button">
-            <%= link_to root_path, class: 'home-button' do %>
-              <i class="fas fa-home"></i> Back to home
-            <% end %>
-          </div>
-        </li>
-      </ul>
+      <div class="edit-button">
+        <%= link_to edit_worker_path(@worker), class: 'submit-button' do %>
+          <i class="fas fa-pencil-alt"></i> Edit <%= @worker.first_name %>
+        <% end %>
+      </div>
 
     </div>
   </div>
