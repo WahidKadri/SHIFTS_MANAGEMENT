@@ -1,9 +1,7 @@
 import "bootstrap";
 import $ from 'jquery';
-
+import '../components/select2';
 import { modal } from '../components/modal';
-
-
 import { openMenu } from '../components/navmenu';
 import { closeMenu } from '../components/navmenu';
 

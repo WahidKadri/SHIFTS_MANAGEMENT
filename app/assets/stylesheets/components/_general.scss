@@ -16,6 +16,9 @@ h2 {
 h3 {
   font-size: 25px;
   margin: 0;
+  color: $light-green;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
 }
 
@@ -54,9 +57,12 @@ em {
 
 // Links
 
-.link {
-  &:link, &:visited, &:hover, &:active {
+a {
+  color: $gray;
+  transition: color 0.4s ease-in-out;
+  &:hover {
     text-decoration: none;
-    color: $gray;
+    color: $dark-green;
+    transition: color 0.4s ease-in-out;
   }
 }

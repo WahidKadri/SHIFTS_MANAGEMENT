@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="title-box">
+      <h1>Workers</h1>
+    </div>
+
+    <div class="col-md-12">
+      <div class="multilists">
+        <% if params[:worker][:status] == "MEDIC" %>
+          <ul class="list-unstyled">
+            <h3>MEDIC</h3>
+            <% @medics.each do |worker| %>
+
+              <li>
+                <%= link_to worker_path(worker) do  %>
+                  <i class="fas fa-user-md"></i> <%= worker.first_name %> <%= worker.last_name.upcase %>
+                <% end %>
+              </li>
+
+            <% end %>
+          </ul>
+
+        <% elsif params[:worker][:status] == "INTERN" %>
+          <ul class="list-unstyled">
+            <h3>INTERN</h3>
+            <% @interns.each do |worker| %>
+
+              <li>
+                <%= link_to worker_path(worker) do  %>
+                  <i class="fas fa-graduation-cap"></i> <%= worker.first_name %> <%= worker.last_name.upcase %>
+                <% end %>
+              </li>
+
+            <% end %>
+          </ul>
+
+        <% elsif params[:worker][:status] == "INTERIM" %>
+          <ul class="list-unstyled">
+            <h3>INTERIM</h3>
+            <% @interims.each do |worker| %>
+
+              <li>
+                <%= link_to worker_path(worker) do  %>
+                  <i class="fas fa-notes-medical"></i> <%= worker.first_name %> <%= worker.last_name.upcase %>
+                <% end %>
+              </li>
+
+            <% end %>
+          </ul>
+
+        <% elsif params[:worker][:last_name].present? %>
+          <ul class="list-unstyled">
+            <% @workers.each do |worker| %>
+              <h3><%= worker.status %></h3>
+
+              <li>
+                <%= link_to worker_path(worker) do  %>
+                  <% if worker.status == "MEDIC" %>
+                    <i class="fas fa-user-md"></i>
+                  <% elsif worker.status == "INTERN" %>
+                    <i class="fas fa-graduation-cap"></i>
+                  <% else %>
+                    <i class="fas fa-notes-medical"></i>
+                  <% end %>
+                    <%= worker.first_name %> <%= worker.last_name.upcase %>
+                <% end %>
+                || <%= worker.status %>
+              </li>
+
+            <% end %>
+          </ul>
+
+        <% end %>
+      </div>
+      <div class="home-button-spacer">
+        <%= link_to root_path, class: 'home-button' do %>
+          <i class="fas fa-home"></i> Back to home
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

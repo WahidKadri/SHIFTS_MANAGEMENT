@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="title-box text-center">
+      <h1>Edition <%= @worker.first_name %> <%= @worker.last_name %></h1>
+    </div>
+    <div class="col-md-4 col-md-offset-4">
+      <% if @worker.errors.any? %>
+        <div class="errors-container">
+          <ul>
+            <% @worker.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+        <%= simple_form_for @worker do |f| %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :status, collection: [ "MEDIC", "INTERN", "INTERIM" ] %>
+          <%= f.submit class: "submit-form-button form-control" %>
+        <% end %>
+    </div>
+  </div>
+</div>
