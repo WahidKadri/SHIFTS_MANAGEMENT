@@ -6,7 +6,7 @@
 
     <div class="col-md-12">
       <div class="multilists">
-        <% if params[:worker][:status] == "MEDIC" %>
+        <% if (params[:worker].present? && params[:worker][:status].present? && params[:worker][:status] == "MEDIC") %>
           <ul class="list-unstyled">
             <h3>MEDIC</h3>
             <% @medics.each do |worker| %>

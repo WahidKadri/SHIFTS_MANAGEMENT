@@ -6,7 +6,7 @@ puts "destroying workers"
 puts "workers creation"
 
 workers = [
-  { first_name: 'Julie', last_name: 'WIECKOWSKI', status: "MEDIC" },
+  { first_name: 'Julie', last_name: 'LESCAUT', status: "MEDIC" },
   { first_name: 'Marc', last_name: 'LAVOINE', status: "MEDIC" },
   { first_name: 'Antoine', last_name: 'DE CAUNES', status: "INTERN" },
   { first_name: 'Emilie', last_name: 'JOLIE', status: "MEDIC" },
