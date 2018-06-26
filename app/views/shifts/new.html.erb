@@ -16,8 +16,8 @@
         </div>
       <% end %>
         <%= simple_form_for @shift do |f| %>
-          <%= f.input :first_name %>
-          <%= f.input :last_name %>
+          <%= f.input :start_date, as: :string, prompt:'Select date..', input_html: {class: "flatpickr"} %>
+          <%= f.association :worker, require: false, :collection => @full_names, input_html: { class: 'select2' } %>
           <%= f.submit class: "submit-form-button form-control" %>
         <% end %>
     </div>

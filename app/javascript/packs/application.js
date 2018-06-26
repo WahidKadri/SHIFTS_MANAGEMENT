@@ -1,7 +1,7 @@
 import "bootstrap";
 import $ from 'jquery';
 import '../components/select2';
-import { modal } from '../components/modal';
+import '../components/flatpickr';
 import { openMenu } from '../components/navmenu';
 import { closeMenu } from '../components/navmenu';
 
@@ -10,10 +10,6 @@ import { closeMenu } from '../components/navmenu';
 
 if (document.getElementById('calendar')){
   $(document).ready(showCalendar());
-}
-
-if (document.querySelector('.photo-box')){
-  modal();
 }
 
 // navmenu
