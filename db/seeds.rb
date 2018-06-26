@@ -3,21 +3,21 @@ Worker.destroy_all
 puts "destroying shifts"
 puts "destroying workers"
 
-puts "workers creation"
+# puts "workers creation"
 
-workers = [
-  { first_name: 'Julie', last_name: 'LESCAUT', full_name: 'Julie LESCAUT', status: "MEDIC" },
-  { first_name: 'Marc', last_name: 'LAVOINE', full_name: 'Marc LAVOINE', status: "MEDIC" },
-  { first_name: 'Antoine', last_name: 'DE CAUNES', full_name: 'Antoine DE CAUNES', status: "INTERN" },
-  { first_name: 'Emilie', last_name: 'JOLIE', full_name: 'Emilie JOLIE', status: "MEDIC" },
-  { first_name: 'Léa', last_name: 'DRUCKER', full_name: 'Léa DRUCKER', status: "INTERIM" }
-]
+# workers = [
+#   { first_name: 'Julie', last_name: 'LESCAUT', full_name: , status: "MEDIC" },
+#   { first_name: 'Marc', last_name: 'LAVOINE', full_name: 'Marc LAVOINE', status: "MEDIC" },
+#   { first_name: 'Antoine', last_name: 'DE CAUNES', full_name: 'Antoine DE CAUNES', status: "INTERN" },
+#   { first_name: 'Emilie', last_name: 'JOLIE', full_name: 'Emilie JOLIE', status: "MEDIC" },
+#   { first_name: 'Léa', last_name: 'DRUCKER', full_name: 'Léa DRUCKER', status: "INTERIM" }
+# ]
 
-workers.each do |worker|
-  Worker.create(worker)
-end
+# workers.each do |worker|
+#   Worker.create(worker)
+# end
 
-puts "workers created"
+# puts "workers created"
 # puts "shifts creation"
 
 # shifts = [
@@ -38,4 +38,5 @@ puts "workers created"
 # end
 
 # puts "shifts created"
-puts "Creation finished !"
+puts "Destruction finished !"
+# puts "Creation finished !"
