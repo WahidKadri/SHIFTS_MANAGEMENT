@@ -6,11 +6,11 @@ puts "destroying workers"
 puts "workers creation"
 
 workers = [
-  { first_name: 'Julie', last_name: 'LESCAUT', status: "MEDIC" },
-  { first_name: 'Marc', last_name: 'LAVOINE', status: "MEDIC" },
-  { first_name: 'Antoine', last_name: 'DE CAUNES', status: "INTERN" },
-  { first_name: 'Emilie', last_name: 'JOLIE', status: "MEDIC" },
-  { first_name: 'Léa', last_name: 'DRUCKER', status: "INTERIM" }
+  { first_name: 'Julie', last_name: 'LESCAUT', full_name: 'Julie LESCAUT', status: "MEDIC" },
+  { first_name: 'Marc', last_name: 'LAVOINE', full_name: 'Marc LAVOINE', status: "MEDIC" },
+  { first_name: 'Antoine', last_name: 'DE CAUNES', full_name: 'Antoine DE CAUNES', status: "INTERN" },
+  { first_name: 'Emilie', last_name: 'JOLIE', full_name: 'Emilie JOLIE', status: "MEDIC" },
+  { first_name: 'Léa', last_name: 'DRUCKER', full_name: 'Léa DRUCKER', status: "INTERIM" }
 ]
 
 workers.each do |worker|

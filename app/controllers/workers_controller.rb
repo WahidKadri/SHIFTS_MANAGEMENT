@@ -1,4 +1,6 @@
 class WorkersController < ApplicationController
+  before_action :set_worker, only: [:show, :edit, :update]
+  before_action :set_upcase_data, only: [:update]
 
   def index
     @workers = Worker.all.order(status: :desc).order(last_name: :asc)
@@ -11,7 +13,6 @@ class WorkersController < ApplicationController
   end
 
   def show
-    @worker = Worker.find(params[:id])
   end
 
   def new
@@ -22,6 +23,7 @@ class WorkersController < ApplicationController
     @worker = Worker.new(worker_params)
     @worker.first_name = params[:worker][:first_name].capitalize
     @worker.last_name = params[:worker][:last_name].upcase
+    @worker.full_name = "#{@worker.first_name} #{@worker.last_name}"
     @worker.status = params[:worker][:status].upcase
     if @worker.save
       redirect_to worker_path(@worker)
@@ -31,14 +33,9 @@ class WorkersController < ApplicationController
   end
 
   def edit
-    @worker = Worker.find(params[:id])
   end
 
   def update
-    @worker = Worker.find(params[:id])
-    @worker.first_name = params[:worker][:first_name].capitalize
-    @worker.last_name = params[:worker][:last_name].upcase
-    @worker.status = params[:worker][:status].upcase
     if @worker.update(worker_params)
       redirect_to worker_path(@worker)
     else
@@ -50,6 +47,17 @@ class WorkersController < ApplicationController
   private
 
   def worker_params
-    params.require(:worker).permit(:first_name, :last_name, :status)
+    params.require(:worker).permit(:first_name.capitalize, :last_name.upcase, :status.upcase)
+  end
+
+  def set_worker
+    @worker = Worker.find(params[:id])
+  end
+
+  def set_upcase_data
+    @worker.first_name = params[:worker][:first_name].capitalize
+    @worker.last_name = params[:worker][:last_name].upcase
+    @worker.full_name = "#{@worker.first_name} #{@worker.last_name}"
+    @worker.status = params[:worker][:status].upcase
   end
 end
