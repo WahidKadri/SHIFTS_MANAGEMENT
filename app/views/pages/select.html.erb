@@ -4,11 +4,15 @@
       <div class="title-box">
         <h1 class="text-center">Select a Worker</h1>
       </div>
+
       <div class=" form form-inline text-center">
         <%= simple_form_for @worker, method: :get do |f| %>
-          <%= f.input :last_name, label: false, prompt:'LAST NAME', :collection => @last_names, input_html: { class: 'select2' } %>
-          <%= f.input :status, label: false, prompt:'STATUS', :collection => @status, input_html: { class: 'select2' } %>
-          <%#= f.submit "Search", class: "select-form-button form-control" %>
+          <span class="select2-input">
+            <%= f.input :last_name, label: false, prompt:'LAST NAME', :collection => @last_names, input_html: { class: 'select2' } %>
+          </span>
+          <span class="select2-input">
+            <%= f.input :status, label: false, prompt:'STATUS', :collection => @status, input_html: { class: 'select2' } %>
+          </span>
           <%= button_tag type: 'submit', class: "submit-form-button form-control" do %>
             <i class="fas fa-search"></i> Search
           <% end %>

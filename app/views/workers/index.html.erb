@@ -4,9 +4,9 @@
       <h1>Workers</h1>
     </div>
 
-    <div class="col-md-12">
-      <div class="multilists">
-        <% if (params[:worker].present? && params[:worker][:status].present? && params[:worker][:status] == "MEDIC") %>
+    <!-- <div class="multilists"> -->
+      <% if (params[:worker].present? && params[:worker][:status].present? && params[:worker][:status] == "MEDIC") %>
+        <div class="col-xs-12">
           <ul class="list-unstyled">
             <h3>MEDIC</h3>
             <% @medics.each do |worker| %>
@@ -19,8 +19,10 @@
 
             <% end %>
           </ul>
+        </div>
 
-        <% elsif params[:worker][:status] == "INTERN" %>
+      <% elsif params[:worker][:status] == "INTERN" %>
+        <div class="col-xs-12">
           <ul class="list-unstyled">
             <h3>INTERN</h3>
             <% @interns.each do |worker| %>
@@ -33,8 +35,10 @@
 
             <% end %>
           </ul>
+        </div>
 
-        <% elsif params[:worker][:status] == "INTERIM" %>
+      <% elsif params[:worker][:status] == "INTERIM" %>
+        <div class="col-xs-12">
           <ul class="list-unstyled">
             <h3>INTERIM</h3>
             <% @interims.each do |worker| %>
@@ -47,8 +51,10 @@
 
             <% end %>
           </ul>
+        </div>
 
-        <% elsif params[:worker][:last_name].present? %>
+      <% elsif params[:worker][:last_name].present? %>
+        <div class="col-xs-12">
           <ul class="list-unstyled">
             <% @workers.each do |worker| %>
               <h3><%= worker.status %></h3>
@@ -68,7 +74,10 @@
 
             <% end %>
           </ul>
-        <% elsif !params[:worker][:last_name].present? && !params[:worker][:status].present? %>
+        </div>
+
+      <% elsif !params[:worker][:last_name].present? && !params[:worker][:status].present? %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
           <ul class="list-unstyled">
             <h3>MEDIC</h3>
             <% @medics.each do |worker| %>
@@ -79,7 +88,9 @@
               </li>
             <% end %>
           </ul>
+        </div>
 
+        <div class="col-xs-12 col-sm-6 col-md-4">
           <ul class="list-unstyled">
             <h3>INTERN</h3>
             <% @interns.each do |worker| %>
@@ -90,7 +101,9 @@
               </li>
             <% end %>
           </ul>
+        </div>
 
+        <div class="col-xs-12 col-sm-6 col-md-4">
           <ul class="list-unstyled">
             <h3>INTERIM</h3>
             <% @interims.each do |worker| %>
@@ -101,9 +114,9 @@
               </li>
             <% end %>
           </ul>
+        </div>
 
-        <% end %>
-      </div>
-    </div>
+      <% end %>
+    <!-- </div> -->
   </div>
 </div>
