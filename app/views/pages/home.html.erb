@@ -10,7 +10,7 @@
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="card">
         <ul class="list-unstyled">
-          <h3>UNASSIGNED</h3>
+          <h4>UNASSIGNED</h4>
           <% @nil_shifts.each_with_index do |nil_shift, index| %>
             <% if nil_shift.worker_id.nil? && Date.today == nil_shift.start_date %>
               <li>
@@ -26,7 +26,7 @@
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="card">
         <ul class="list-unstyled">
-          <h3>MEDIC</h3>
+          <h4>MEDIC</h4>
           <% @shifts.each do |shift| %>
             <% if shift.worker_id.nil? %>
               <%= "" %>
@@ -43,7 +43,7 @@
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="card">
         <ul class="list-unstyled">
-          <h3>INTERN</h3>
+          <h4>INTERN</h4>
           <% @shifts.each do |shift| %>
             <% if shift.worker_id.nil? %>
               <%= "" %>
@@ -60,7 +60,7 @@
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="card">
         <ul class="list-unstyled">
-          <h3>INTERIM</h3>
+          <h4>INTERIM</h4>
           <% @shifts.each do |shift| %>
             <% if shift.worker_id.nil? %>
               <%= "" %>

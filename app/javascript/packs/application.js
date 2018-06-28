@@ -1,5 +1,6 @@
 import "bootstrap";
 import $ from 'jquery';
+import { showCalendar } from '../components/calendar';
 import '../components/select2';
 import '../components/flatpickr';
 import { openMenu } from '../components/navmenu';
