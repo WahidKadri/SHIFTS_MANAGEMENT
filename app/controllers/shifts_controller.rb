@@ -7,9 +7,6 @@ class ShiftsController < ApplicationController
 
   def create
     @shift = Shift.new(shift_params)
-    @full_names = Worker.distinct.pluck(:full_name).sort
-    # @worker = Worker.new
-    # @shift.worker = @worker
     if @shift.save
       redirect_to root_path
     else

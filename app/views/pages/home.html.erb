@@ -1,11 +1,79 @@
 <div class="title-box">
   <h1>Today,</h1>
-  <h2><%= l Date.today %></h2>
+  <h2><%= Date.today.strftime('%A %d %B %Y') %></h2>
 </div>
 
 <div class="today-box">
   <h3>Today's shifts</h3>
   <div class="section-box list-box">
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="card">
+        <ul class="list-unstyled">
+          <h3>UNASSIGNED</h3>
+          <% @nil_shifts.each_with_index do |nil_shift, index| %>
+            <% if nil_shift.worker_id.nil? && Date.today == nil_shift.start_date %>
+              <li>
+                <p><i class="fas fa-question-circle"></i> <%= index + 1 %> - <%= nil_shift.start_date.strftime('%d %b %Y') %></p>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="card">
+        <ul class="list-unstyled">
+          <h3>MEDIC</h3>
+          <% @shifts.each do |shift| %>
+            <% if shift.worker_id.nil? %>
+              <%= "" %>
+            <% elsif shift.worker.status == "MEDIC" && Date.today == shift.start_date %>
+              <li>
+                <i class="fas fa-user-md"></i> <%= shift.worker.full_name %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="card">
+        <ul class="list-unstyled">
+          <h3>INTERN</h3>
+          <% @shifts.each do |shift| %>
+            <% if shift.worker_id.nil? %>
+              <%= "" %>
+            <% elsif shift.worker.status == "INTERN" && Date.today == shift.start_date %>
+              <li>
+                <i class="fas fa-graduation-cap"></i> <%= shift.worker.full_name %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="card">
+        <ul class="list-unstyled">
+          <h3>INTERIM</h3>
+          <% @shifts.each do |shift| %>
+            <% if shift.worker_id.nil? %>
+              <%= "" %>
+            <% elsif shift.worker.status == "INTERIM" && Date.today == shift.start_date %>
+              <li>
+                <p><i class="fas fa-notes-medical"></i> <%= shift.worker.full_name %></p>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </div>
 

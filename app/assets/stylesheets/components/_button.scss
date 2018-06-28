@@ -3,51 +3,35 @@
   background-color: $dark-green;
   color: white;
   padding: 10px 20px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.submit-button:hover {
-  text-decoration: none;
-  color: white;
-  background-color: $light-green;
-  transition: background-color 0.3s ease-in-out;
+  // box-shadow: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .submit-form-button {
   border-radius: 5px;
   background-color: $dark-green;
   color: white;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.submit-form-button:hover {
+.submit-button:hover, .submit-form-button:hover, .select-form-button:hover {
   text-decoration: none;
-  color: white;
-  background-color: $light-green;
-  transition: background-color 0.3s ease-in-out;
+  color: #F1572B;
+  background-color: #F6D446;
+  // box-shadow: 1px 1px 3px black;
+  transition: all 0.3s ease-in-out;
 }
+
+
+// .submit-form-button:hover, .select-form-button:hover {
+//   text-decoration: none;
+//   color: white;
+//   background-color: $light-green;
+//   transition: background-color 0.3s ease-in-out;
+// }
 
 .edit-button {
   margin-left: 30px;
-}
-
-.home-button {
-  border-radius: 5px;
-  background-color: $dark-blue;
-  color: white;
-  padding: 10px 20px;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.home-button:hover {
-  text-decoration: none;
-  color: white;
-  background-color: $light-blue;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.home-button-spacer {
-  margin-top: 15px;
 }
 
 .select-form-button {
@@ -56,12 +40,5 @@
   border-radius: 50%;
   background-color: $dark-green;
   color: white;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.select-form-button:hover {
-  text-decoration: none;
-  color: white;
-  background-color: $light-green;
   transition: background-color 0.3s ease-in-out;
 }

@@ -25,6 +25,7 @@ class WorkersController < ApplicationController
     @worker.last_name = params[:worker][:last_name].upcase
     @worker.full_name = "#{@worker.first_name} #{@worker.last_name}"
     @worker.status = params[:worker][:status].upcase
+    @worker.details = "#{@worker.full_name} - #{@worker.status}"
     if @worker.save
       redirect_to worker_path(@worker)
     else
@@ -59,5 +60,6 @@ class WorkersController < ApplicationController
     @worker.last_name = params[:worker][:last_name].upcase
     @worker.full_name = "#{@worker.first_name} #{@worker.last_name}"
     @worker.status = params[:worker][:status].upcase
+    @worker.details = "#{@worker.full_name} - #{@worker.status}"
   end
 end

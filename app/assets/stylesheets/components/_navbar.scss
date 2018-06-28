@@ -48,8 +48,6 @@
 }
 
 /* Menu */
-
-/* The side navigation menu */
 .navmenu {
   height: 0; /* 100% Full-height */
   width: 100%; /* 0 width - change this with JavaScript */
@@ -73,11 +71,13 @@
   margin-bottom: 20px;
   margin-left: 20px;
   margin-right: 20px;
+  transition: color 0.3s ease-in-out;
 }
 
 /* When you mouse over the navigation links, change their color */
 .navmenu a:hover {
-  color: #f1f1f1;
+  color: #F1572B;
+  transition: color 0.3s ease-in-out;
 }
 
 /* Position and style the close button (top right corner) */

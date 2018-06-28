@@ -6,22 +6,26 @@
       </div>
     </div>
     <div class="col-md-4 col-md-offset-4">
-      <% if @shift.errors.any? %>
-        <div class="errors-container">
-          <ul>
-            <% @shift.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-        <%= simple_form_for @shift do |f| %>
-          <%= f.input :start_date, as: :string, prompt:'Select date..', input_html: {class: "flatpickr"} %>
-          <%= f.association :worker, require: false, :collection => @full_names, input_html: { class: 'select2' } %>
-          <%= f.submit class: "submit-form-button form-control" %>
+      <%= simple_form_for @shift do |f| %>
+        <% if @shift.errors.any? %>
+          <div class="errors-container">
+            <ul>
+              <% @shift.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
+        <%= f.input :start_date, as: :string, prompt:'Select date..', input_html: {class: "flatpickr"} %>
+        <div class="spacer">
+          <%= f.collection_select(:worker_id, Worker.all.order(full_name: :asc), :id, :details, {:prompt => 'Please select a worker', :require => false}, {:class =>'select2'}) %>
+        </div>
+        <%= f.submit class:"submit-form-button form-control" %>
+      <% end %>
     </div>
   </div>
 </div>
+
+
 
 
