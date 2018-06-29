@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="title-box">
+      <h1>Calendar</h1>
+    </div>
+
+    <ul class="list-inline text-center">
+      <li class="legende unassigned">
+        <h6>UNASSIGNED</h6>
+      </li>
+      <li class="legende medic">
+        <h6>MEDIC</h6>
+      </li>
+      <li class="legende intern">
+        <h6>INTERN</h6>
+      </li>
+      <li class="legende interim">
+        <h6>INTERIM</h6>
+      </li>
+    </ul>
+
+    <div class="col-xs-12">
+      <div id="calendar" data-event-day="<%= @events_day.to_json %>" data-event-week="<%= @events_week.to_json %>"></div>
+    </div>
+  </div>
+</div>

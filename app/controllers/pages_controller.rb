@@ -9,7 +9,4 @@ class PagesController < ApplicationController
     @status = Worker.distinct.pluck(:status).sort
     @worker = Worker.new
   end
-
-  def calendar
-  end
 end
