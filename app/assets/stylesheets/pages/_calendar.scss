@@ -2,22 +2,22 @@
   z-index: 1;
 }
 
+.fc-time{
+   display : none;
+}
+
 .fc-toolbar.fc-header-toolbar{
   margin-bottom: 0.5em !important;
 }
 
-
 .fc-month-view .fc-event{
-  background-color: transparent !important;
-  border:none;
   .fc-content{
   color: $gray;
   }
-  img{
-    &:first-child{
-      margin-right:2px;
-    }
-  }
+}
+
+.fc-day-number {
+  color: $gray;
 }
 
 .fc-month-view .img-calendar{
@@ -31,7 +31,7 @@
 }
 
 .fc-today{
-  background-color: $light-blue !important;
+  background-color: white !important;
 }
 
 .fc-agendaDay-button{

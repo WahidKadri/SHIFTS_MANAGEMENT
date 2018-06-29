@@ -49,7 +49,7 @@ class CalendarController < ApplicationController
     end
     @events_week = events
 
-    # DAY
+    # MONTH
     events = []
     @shifts.each do |shift|
       data = nil
@@ -64,7 +64,7 @@ class CalendarController < ApplicationController
         events << data
       elsif shift.worker.status == "MEDIC"
         data = {
-          title: "#{shift.worker.full_name} - #{shift.worker.status}",
+          title: "#{shift.worker.full_name}",
           start: shift.start_date,
           allDay: true,
           backgroundColor: '#f1572b',
@@ -74,7 +74,7 @@ class CalendarController < ApplicationController
         events << data
       elsif shift.worker.status == "INTERN"
         data = {
-          title: "#{shift.worker.full_name} - #{shift.worker.status}",
+          title: "#{shift.worker.full_name}",
           start: shift.start_date,
           allDay: true,
           backgroundColor: '#EBCC47',
@@ -83,7 +83,7 @@ class CalendarController < ApplicationController
         events << data
       elsif shift.worker.status == "INTERIM"
         data = {
-          title: "#{shift.worker.full_name} - #{shift.worker.status}",
+          title: "#{shift.worker.full_name}",
           start: shift.start_date,
           allDay: true,
           backgroundColor: '#32B796',
@@ -93,6 +93,6 @@ class CalendarController < ApplicationController
         events << data
       end
     end
-    @events_day = events
+    @events_month = events
   end
 end
