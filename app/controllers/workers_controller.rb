@@ -3,13 +3,12 @@ class WorkersController < ApplicationController
   before_action :set_upcase_data, only: [:update]
 
   def index
-    @workers = Worker.all.order(status: :desc).order(last_name: :asc)
-    @workers = Worker.where(last_name: params[:worker][:last_name]) if (params[:worker].present? && params[:worker][:last_name].present?)
-    @workers = Worker.where(status: params[:worker][:status]) if (params[:worker].present? && params[:worker][:status].present?)
-
-    @medics = Worker.where(status: "MEDIC").order(last_name: :asc).order(first_name: :asc)
-    @interns = Worker.where(status: "INTERN").order(last_name: :asc).order(first_name: :asc)
-    @interims = Worker.where(status: "INTERIM").order(last_name: :asc).order(first_name: :asc)
+    if params[:query].present?
+      sql_query = "details ILIKE :query"
+      @workers = Worker.where(sql_query, query: "%#{params[:query]}%").order(details: :asc)
+    else
+      @workers = Worker.all.order(details: :asc)
+    end
   end
 
   def show

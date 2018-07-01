@@ -6,11 +6,11 @@
         <h2>Status - <%= @worker.status %></h2>
       </div>
 
-      <div class="edit-button">
+
         <%= link_to edit_worker_path(@worker), class: 'submit-button' do %>
           <i class="fas fa-pencil-alt"></i> Edit <%= @worker.first_name %>
         <% end %>
-      </div>
+
 
     </div>
   </div>

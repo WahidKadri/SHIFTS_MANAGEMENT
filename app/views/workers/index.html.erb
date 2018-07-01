@@ -1,120 +1,28 @@
 <div class="container">
   <div class="row">
     <div class="title-box">
-      <h1>Workers</h1>
+      <h1 class="text-center">Select a Worker</h1>
     </div>
 
-    <% if (params[:worker].present? && params[:worker][:status].present? && params[:worker][:status] == "MEDIC") %>
-      <div class="col-xs-12">
-        <ul class="list-unstyled">
-          <h3>MEDIC</h3>
-          <% @medics.each do |worker| %>
+    <div class="col-xs-12">
+      <form class="search" action="/workers" accept-charset="UTF-8" method="get">
+        <input type="text" placeholder="Search.." name="query" id="query" class="form-control">
+        <button type="submit" class="form-control"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
 
-            <li>
-              <%= link_to worker_path(worker) do  %>
-                <i class="fas fa-user-md"></i> <%= worker.full_name %>
-              <% end %>
-            </li>
+    <div class="col-xs-12">
+      <ul class="list-unstyled space-workers">
+        <% @workers.each_with_index do |worker, index| %>
+          <li>
+            <%= link_to edit_worker_path(worker), class: "edit-button" do %>
+              <i class="fas fa-user-md"></i> <%= index + 1 %> | <%= worker.details %> <i class="fas fa-pencil-alt"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-          <% end %>
-        </ul>
-      </div>
 
-    <% elsif params[:worker][:status] == "INTERN" %>
-      <div class="col-xs-12">
-        <ul class="list-unstyled">
-          <h3>INTERN</h3>
-          <% @interns.each do |worker| %>
-
-            <li>
-              <%= link_to worker_path(worker) do  %>
-                <i class="fas fa-graduation-cap"></i> <%= worker.full_name %>
-              <% end %>
-            </li>
-
-          <% end %>
-        </ul>
-      </div>
-
-    <% elsif params[:worker][:status] == "INTERIM" %>
-      <div class="col-xs-12">
-        <ul class="list-unstyled">
-          <h3>INTERIM</h3>
-          <% @interims.each do |worker| %>
-
-            <li>
-              <%= link_to worker_path(worker) do  %>
-                <i class="fas fa-notes-medical"></i> <%= worker.full_name %>
-              <% end %>
-            </li>
-
-          <% end %>
-        </ul>
-      </div>
-
-    <% elsif params[:worker][:last_name].present? %>
-      <div class="col-xs-12">
-        <ul class="list-unstyled">
-          <% @workers.each do |worker| %>
-            <h3><%= worker.status %></h3>
-
-            <li>
-              <%= link_to worker_path(worker) do  %>
-                <% if worker.status == "MEDIC" %>
-                  <i class="fas fa-user-md"></i>
-                <% elsif worker.status == "INTERN" %>
-                  <i class="fas fa-graduation-cap"></i>
-                <% else %>
-                  <i class="fas fa-notes-medical"></i>
-                <% end %>
-                  <%= worker.full_name %>
-              <% end %>
-            </li>
-
-          <% end %>
-        </ul>
-      </div>
-
-    <% elsif !params[:worker][:last_name].present? && !params[:worker][:status].present? %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <ul class="list-unstyled">
-          <h3>MEDIC</h3>
-          <% @medics.each do |worker| %>
-            <li>
-              <%= link_to worker_path(worker) do  %>
-                <i class="fas fa-user-md"></i> <%= worker.full_name %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <ul class="list-unstyled">
-          <h3>INTERN</h3>
-          <% @interns.each do |worker| %>
-            <li>
-              <%= link_to worker_path(worker) do  %>
-                <i class="fas fa-graduation-cap"></i> <%= worker.full_name %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <ul class="list-unstyled">
-          <h3>INTERIM</h3>
-          <% @interims.each do |worker| %>
-            <li>
-              <%= link_to worker_path(worker) do  %>
-                <i class="fas fa-notes-medical"></i> <%= worker.full_name %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-
-    <% end %>
   </div>
 </div>

@@ -3,7 +3,6 @@
   background-color: $dark-green;
   color: white;
   padding: 10px 20px;
-  // box-shadow: none;
   transition: all 0.3s ease-in-out;
 }
 
@@ -14,24 +13,20 @@
   transition: all 0.3s ease-in-out;
 }
 
-.submit-button:hover, .submit-form-button:hover, .select-form-button:hover {
+.edit-button {
+  border-radius: 5px;
+  background-color: $dark-green;
+  color: white;
+  padding: 2px 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-button:hover, .edit-button:hover, .submit-form-button:hover, .select-form-button:hover {
   text-decoration: none;
   color: #F1572B;
   background-color: #F6D446;
   // box-shadow: 1px 1px 3px black;
   transition: all 0.3s ease-in-out;
-}
-
-
-// .submit-form-button:hover, .select-form-button:hover {
-//   text-decoration: none;
-//   color: white;
-//   background-color: $light-green;
-//   transition: background-color 0.3s ease-in-out;
-// }
-
-.edit-button {
-  margin-left: 30px;
 }
 
 .select-form-button {

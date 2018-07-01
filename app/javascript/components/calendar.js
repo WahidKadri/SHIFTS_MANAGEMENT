@@ -20,6 +20,7 @@ export function showCalendar() {
       center: 'title',
       right:  'prev,next'
       },
+      editable: true,
       events: listEventsWeek,
       viewRender: function(view, element) {
         if (view.type === 'agendaWeek'){

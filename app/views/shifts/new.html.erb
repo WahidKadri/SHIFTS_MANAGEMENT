@@ -20,7 +20,7 @@
         <div class="spacer">
           <%= f.collection_select(:worker_id, Worker.all.order(full_name: :asc), :id, :details, {:prompt => 'Please select a worker', :require => false}, {:class =>'select2'}) %>
         </div>
-        <%= f.submit class:"submit-form-button form-control" %>
+        <h4><%= f.submit class:"submit-form-button form-control" %></h4>
       <% end %>
     </div>
   </div>

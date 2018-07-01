@@ -18,6 +18,11 @@ class ShiftsController < ApplicationController
   end
 
   def update
+    if @shift.update(shift_params)
+      redirect_to calendar_index_path
+    else
+      render :new
+    end
   end
 
 

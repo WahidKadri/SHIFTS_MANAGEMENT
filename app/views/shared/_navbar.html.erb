@@ -17,13 +17,16 @@
       <div class="col-md-6 col-md-offset-3">
         <div class="menu-box">
           <%= link_to new_worker_path, class: "submit-button" do %>
-            <i class="fas fa-plus"></i> Add a new Worker
+            <i class="fas fa-plus"></i> Add a new Worker <i class="fas fa-user-md"></i>
           <% end %>
-          <%= link_to select_path, class: "submit-button" do %>
-            <i class="fas fa-plus"></i> Edit a Worker
+          <%= link_to workers_path, class: "submit-button" do %>
+            <i class="fas fa-pencil-alt"></i> Edit a Worker
           <% end %>
           <%= link_to new_shift_path, class: "submit-button" do %>
-            <i class="fas fa-plus"></i> Add a new Shift
+            <i class="fas fa-plus"></i> Add a new Shift <i class="far fa-calendar-check"></i>
+          <% end %>
+          <%= link_to select_shift_path, class: "submit-button" do %>
+            <i class="fas fa-pencil-alt"></i> Edit / Assign a Shift
           <% end %>
         </div>
       </div>
