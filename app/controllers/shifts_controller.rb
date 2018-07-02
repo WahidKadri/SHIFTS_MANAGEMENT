@@ -17,7 +17,7 @@ class ShiftsController < ApplicationController
   def create
     @shift = Shift.new(shift_params)
     if @shift.save
-      redirect_to root_path
+      redirect_to calendar_index_path
     else
       render :new
     end
