@@ -20,8 +20,19 @@ export function showCalendar() {
       center: 'title',
       right:  'prev,next'
       },
-      editable: true,
       events: listEventsWeek,
+      eventLimit: 3,
+      // editable: true,
+      // eventDrop: function(event, delta, revertFunc) {
+
+      //     alert(event.title + " was dropped on " + event.start.format());
+
+      //     if (!confirm("Are you sure about this change?")) {
+      //       revertFunc();
+      //     }
+
+      //     $('#calendar').fullCalendar('updateEvent', event);
+      //   },
       viewRender: function(view, element) {
         if (view.type === 'agendaWeek'){
           $('#calendar').fullCalendar('removeEvents');

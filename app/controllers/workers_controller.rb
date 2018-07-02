@@ -37,7 +37,7 @@ class WorkersController < ApplicationController
 
   def update
     if @worker.update(worker_params)
-      redirect_to worker_path(@worker)
+      redirect_to workers_path
     else
       render :new
     end

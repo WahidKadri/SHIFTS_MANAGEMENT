@@ -9,12 +9,14 @@
 
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="card">
-        <ul class="list-unstyled">
+        <ul class="list-unstyled space-worker">
           <h4>UNASSIGNED</h4>
-          <% @nil_shifts.each_with_index do |nil_shift, index| %>
+          <% @nil_shifts.each do |nil_shift| %>
             <% if nil_shift.worker_id.nil? && Date.today == nil_shift.start_date %>
               <li>
-                <p><i class="fas fa-question-circle"></i> <%= index + 1 %> - <%= nil_shift.start_date.strftime('%d %b %Y') %></p>
+                <%= link_to edit_shift_path(nil_shift), class:'edit-button' do  %>
+                  <i class="fas fa-question-circle"></i> - <%= nil_shift.start_date.strftime('%d %b %Y') %> <i class="fas fa-pencil-alt"></i>
+                <% end %>
               </li>
             <% end %>
           <% end %>
@@ -25,14 +27,16 @@
 
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="card">
-        <ul class="list-unstyled">
+        <ul class="list-unstyled space-worker">
           <h4>MEDIC</h4>
           <% @shifts.each do |shift| %>
             <% if shift.worker_id.nil? %>
               <%= "" %>
             <% elsif shift.worker.status == "MEDIC" && Date.today == shift.start_date %>
               <li>
-                <i class="fas fa-user-md"></i> <%= shift.worker.full_name %>
+                <%= link_to edit_shift_path(shift), class:'edit-button' do  %>
+                  <i class="fas fa-user-md"></i> <%= shift.worker.full_name %> <i class="fas fa-pencil-alt"></i>
+                <% end %>
               </li>
             <% end %>
           <% end %>
@@ -42,14 +46,16 @@
 
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="card">
-        <ul class="list-unstyled">
+        <ul class="list-unstyled space-worker">
           <h4>INTERN</h4>
           <% @shifts.each do |shift| %>
             <% if shift.worker_id.nil? %>
               <%= "" %>
             <% elsif shift.worker.status == "INTERN" && Date.today == shift.start_date %>
               <li>
-                <i class="fas fa-graduation-cap"></i> <%= shift.worker.full_name %>
+                <%= link_to edit_shift_path(shift), class:'edit-button' do  %>
+                  <i class="fas fa-graduation-cap"></i> <%= shift.worker.full_name %> <i class="fas fa-pencil-alt"></i>
+                <% end %>
               </li>
             <% end %>
           <% end %>
@@ -59,14 +65,16 @@
 
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="card">
-        <ul class="list-unstyled">
+        <ul class="list-unstyled space-worker">
           <h4>INTERIM</h4>
           <% @shifts.each do |shift| %>
             <% if shift.worker_id.nil? %>
               <%= "" %>
             <% elsif shift.worker.status == "INTERIM" && Date.today == shift.start_date %>
               <li>
-                <p><i class="fas fa-notes-medical"></i> <%= shift.worker.full_name %></p>
+                <%= link_to edit_shift_path(shift), class:'edit-button' do  %>
+                  <i class="fas fa-notes-medical"></i> <%= shift.worker.full_name %> <i class="fas fa-pencil-alt"></i>
+                <% end %>
               </li>
             <% end %>
           <% end %>

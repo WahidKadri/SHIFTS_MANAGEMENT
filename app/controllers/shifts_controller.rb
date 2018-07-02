@@ -1,6 +1,15 @@
 class ShiftsController < ApplicationController
   before_action :set_shift, only: [:edit, :update]
 
+  def index
+    if params[:query].present?
+      sql_query = "start_date = :query"
+      @shifts = Shift.where(sql_query, query: "%#{params[:query]}%").order(start_date: :asc)
+    else
+      @shifts = Shift.all.order(start_date: :asc)
+    end
+  end
+
   def new
     @shift = Shift.new
   end

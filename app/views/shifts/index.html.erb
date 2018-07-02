@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="title-box">
+      <h1 class="text-center">Select a Shift</h1>
+    </div>
+
+    <div class="col-xs-12">
+      <form class="search" action="/shifts" accept-charset="UTF-8" method="get">
+        <input type="text" placeholder="Select date.." name="query" id="query" class="form-control flatpickr">
+        <button type="submit" class="form-control"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+
+    <div class="col-xs-12">
+      <ul class="list-unstyled space-shifts">
+        <h3>UNASSIGNED</h3>
+        <% @shifts.each do |shift| %>
+          <% if shift.worker_id.nil? && shift.start_date >= Date.today %>
+            <li>
+              <%= link_to edit_shift_path(shift), class: "edit-button" do %>
+                <i class="fas fa-question-circle"></i> | <%= shift.start_date.strftime('%d %b %Y') %> <i class="fas fa-pencil-alt"></i>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <ul class="list-unstyled space-shifts">
+        <h3>MEDIC</h3>
+        <% @shifts.each do |shift| %>
+          <% if shift.worker_id.nil? %>
+            <%= "" %>
+          <% elsif shift.worker.status == "MEDIC" && shift.start_date >= Date.today %>
+            <li>
+              <%= link_to edit_shift_path(shift), class:'edit-button' do  %>
+                <i class="far fa-calendar-check"></i> | <%= shift.start_date.strftime('%d %b %Y') %> - <%= shift.worker.full_name %> <i class="fas fa-pencil-alt"></i>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <ul class="list-unstyled space-shifts">
+        <h3>INTERN</h3>
+        <% @shifts.each do |shift| %>
+          <% if shift.worker_id.nil? %>
+            <%= "" %>
+          <% elsif shift.worker.status == "INTERN" && shift.start_date >= Date.today %>
+            <li>
+              <%= link_to edit_shift_path(shift), class:'edit-button' do  %>
+                <i class="far fa-calendar-check"></i> | <%= shift.start_date.strftime('%d %b %Y') %> - <%= shift.worker.full_name %> <i class="fas fa-pencil-alt"></i>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <ul class="list-unstyled space-shifts">
+        <h3>INTERIM</h3>
+        <% @shifts.each do |shift| %>
+          <% if shift.worker_id.nil? %>
+            <%= "" %>
+          <% elsif shift.worker.status == "INTERIM" && shift.start_date >= Date.today %>
+            <li>
+              <%= link_to edit_shift_path(shift), class:'edit-button' do  %>
+                <i class="far fa-calendar-check"></i> | <%= shift.start_date.strftime('%d %b %Y') %> - <%= shift.worker.full_name %> <i class="fas fa-pencil-alt"></i>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+
+  </div>
+</div>
